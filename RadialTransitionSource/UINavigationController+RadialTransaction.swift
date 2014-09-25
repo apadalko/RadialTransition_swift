@@ -10,7 +10,7 @@ import UIKit
 let abc=AAPTransactionDirector();
 
 var defaultRadialDuration:CGFloat = 0.5
-var panGesture:UIScreenEdgePanGestureRecognizer? = nil
+
 extension UINavigationController {
 
     class func animator()->AAPTransactionDirector{
@@ -107,28 +107,51 @@ extension UINavigationController {
     
     func enableRadialSwipe(){
         
-        if self.respondsToSelector(Selector("interactivePopGestureRecognizer")) {
-            
-            self.interactivePopGestureRecognizer.enabled = false
-        }
+  
         
         
-         panGesture = UIScreenEdgePanGestureRecognizer(target: self, action: Selector("screenPan:"))
-        panGesture?.edges = UIRectEdge.Left
-        
-        self.view.addGestureRecognizer(panGesture!)
+   self.enableGesture(true)
         
         
         
     }
     func disableRadialSwipe(){
-        if panGesture != nil {
-               self.view.removeGestureRecognizer(panGesture!)
-        }
-     
+self.enableGesture(false)
         
     }
     
+    
+    private func enableGesture(enabled:Bool){
+        
+        struct StaticStruct {
+        
+            static var recognizerData = Dictionary<String,UIGestureRecognizer>()
+            
+        }
+        
+        if enabled == true {
+            
+            if self.respondsToSelector(Selector("interactivePopGestureRecognizer")) {
+                
+                self.interactivePopGestureRecognizer.enabled = false
+            }
+            
+            let  panGesture = UIScreenEdgePanGestureRecognizer(target: self, action: Selector("screenPan:"))
+            panGesture.edges = UIRectEdge.Left
+            
+            self.view.addGestureRecognizer(panGesture)
+            
+            StaticStruct.recognizerData[self.description] = panGesture
+            
+            
+            
+        }else {
+            
+            self.view.removeGestureRecognizer(StaticStruct.recognizerData[self.description]!)
+            StaticStruct.recognizerData[self.description] = nil
+            
+        }
+    }
     
     func screenPan(sender: AnyObject){
         
