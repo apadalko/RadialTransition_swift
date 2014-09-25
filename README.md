@@ -1,7 +1,7 @@
 RadialTransition_swift
 =====================
 
-Great radial transition for navigation controller, with custom back swipe.
+Great ios radial transition for navigation controller, with custom back swipe.
 
 
 Demo
