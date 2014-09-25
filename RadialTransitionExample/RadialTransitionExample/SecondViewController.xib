@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecondViewController" customModule="RadialTransitionExample" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star-wars_00409801.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="g9p-Ie-YUk">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1f-BH-gPG">
+                    <rect key="frame" x="431" y="104" width="140" height="60"/>
+                    <color key="backgroundColor" red="0.95343338820000001" green="0.95351048520000004" blue="0.95636307570000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="IeD-Ye-Hey"/>
+                        <constraint firstAttribute="width" constant="140" id="k70-j9-QIM"/>
+                    </constraints>
+                    <state key="normal" title="simple back">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="6"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="simplePop:" destination="-1" eventType="touchUpInside" id="KXm-RK-vfT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eZ-lb-Ut7">
+                    <rect key="frame" x="431" y="180" width="140" height="60"/>
+                    <color key="backgroundColor" red="0.95343338820000001" green="0.95351048520000004" blue="0.95636307570000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="AMV-3s-OK3"/>
+                        <constraint firstAttribute="height" constant="60" id="VH5-JE-JMA"/>
+                    </constraints>
+                    <state key="normal" title="Custom frame 1">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="6"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="cutimFrame1:" destination="-1" eventType="touchUpInside" id="Y1Q-mr-Qbu"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHz-Jd-jdA">
+                    <rect key="frame" x="431" y="253" width="140" height="60"/>
+                    <color key="backgroundColor" red="0.95343338820000001" green="0.95351048520000004" blue="0.95636307570000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="RWa-UC-HMn"/>
+                        <constraint firstAttribute="height" constant="60" id="xun-ub-frk"/>
+                    </constraints>
+                    <state key="normal" title="Custom frame 2">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="6"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="customFrame2:" destination="-1" eventType="touchUpInside" id="Amc-OD-FLh"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="4eZ-lb-Ut7" secondAttribute="trailing" constant="29" id="1uw-Z2-iqs"/>
+                <constraint firstAttribute="trailing" secondItem="g9p-Ie-YUk" secondAttribute="trailing" id="67W-Fa-QoV"/>
+                <constraint firstItem="n1f-BH-gPG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="104" id="9oi-xL-15j"/>
+                <constraint firstAttribute="trailing" secondItem="n1f-BH-gPG" secondAttribute="trailing" constant="29" id="BR7-xQ-Bln"/>
+                <constraint firstItem="g9p-Ie-YUk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DSx-Tg-h5n"/>
+                <constraint firstItem="4eZ-lb-Ut7" firstAttribute="top" secondItem="n1f-BH-gPG" secondAttribute="bottom" constant="16" id="Qxw-Ir-i4H"/>
+                <constraint firstAttribute="bottom" secondItem="g9p-Ie-YUk" secondAttribute="bottom" id="YtS-PB-MaD"/>
+                <constraint firstItem="g9p-Ie-YUk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ibA-eX-phO"/>
+                <constraint firstItem="hHz-Jd-jdA" firstAttribute="top" secondItem="4eZ-lb-Ut7" secondAttribute="bottom" constant="13" id="q6r-8q-TLk"/>
+                <constraint firstAttribute="trailing" secondItem="hHz-Jd-jdA" secondAttribute="trailing" constant="29" id="yeX-pE-5tl"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="star-wars_00409801.jpg" width="1920" height="1080"/>
+    </resources>
+</document>
