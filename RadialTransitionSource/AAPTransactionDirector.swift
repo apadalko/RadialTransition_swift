@@ -12,10 +12,18 @@ class AAPTransactionDirector: NSObject,UIViewControllerAnimatedTransitioning,UIN
  
     private  var _context:UIViewControllerContextTransitioning?
     
- 
+    /**
+    * animation block.Use transactionContext to get all needed views. toViewController will be above. NOTE: if you use it for animation without interactive YOU MUST RUN complitBlock at end.
+    *
+    */
   lazy var animationBlock:((transactionContext:UIViewControllerContextTransitioning, animationTime: CGFloat , transitionCompletion:()->Void)->Void)? = nil
+    /**
+    * interactive update block.Use transactionContext to get all needed views.updating after percent changing
+    *
+    */
   lazy var interactiveUpdateBlock:((transactionContext:UIViewControllerContextTransitioning, percent: CGFloat)->Void)? = nil
-    lazy var interactiveEndBlock:(()->Void)? = nil
+    
+  lazy var interactiveEndBlock:(()->Void)? = nil
     
     
     var isInteractive:Bool = false
@@ -62,6 +70,10 @@ class AAPTransactionDirector: NSObject,UIViewControllerAnimatedTransitioning,UIN
     }
 
 //MARK: Interactive transaction ending
+    /**
+    * run to end interactive transaction
+    *
+    */
     func endInteractiveTranscation(#canceled: Bool , endBlock:()->Void){
         self.interactiveEndBlock=endBlock
         if canceled {
