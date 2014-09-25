@@ -10,6 +10,7 @@ import UIKit
 let abc=AAPTransactionDirector();
 
 var defaultRadialDuration:CGFloat = 0.5
+var panGesture:UIScreenEdgePanGestureRecognizer? = nil
 extension UINavigationController {
 
     class func animator()->AAPTransactionDirector{
@@ -112,13 +113,19 @@ extension UINavigationController {
         }
         
         
-        let panGesture = UIScreenEdgePanGestureRecognizer(target: self, action: Selector("screenPan:"))
+         panGesture = UIScreenEdgePanGestureRecognizer(target: self, action: Selector("screenPan:"))
+        panGesture?.edges = UIRectEdge.Left
         
-        panGesture.edges = UIRectEdge.Left
-        
-        self.view.addGestureRecognizer(panGesture)
+        self.view.addGestureRecognizer(panGesture!)
         
         
+        
+    }
+    func disableRadialSwipe(){
+        if panGesture != nil {
+               self.view.removeGestureRecognizer(panGesture!)
+        }
+     
         
     }
     
@@ -218,7 +225,7 @@ extension UINavigationController {
         default:
             
             
-             let mainD  =  location.x*StaticStruct.d/self.view.frame.size.width;
+            let mainD  =  location.x*StaticStruct.d/self.view.frame.size.width;
             
             let canceled = mainD>StaticStruct.d*0.5 ? false : true;
             

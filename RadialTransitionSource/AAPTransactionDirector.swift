@@ -127,11 +127,11 @@ class AAPTransactionDirector: NSObject,UIViewControllerAnimatedTransitioning,UIN
 //MARK: init & deinit
 
       override init() {
- println("director created");
+
         }
     
      deinit{
-        println("trans action director deolocated");
+    
         }
 
 
@@ -153,7 +153,7 @@ class AAPTransactionDirector: NSObject,UIViewControllerAnimatedTransitioning,UIN
         
          self.animationBlock?(transactionContext: self._context!, animationTime: self.duration!, transitionCompletion: { () -> Void in
             
-            println("aniation end")
+        
           
            transitionContext.completeTransition(true)
       
