@@ -163,7 +163,7 @@ self.enableGesture(false)
     func screenPan(sender: AnyObject){
         
         
-        let pan: UIPanGestureRecognizer = sender as UIPanGestureRecognizer
+        let pan: UIPanGestureRecognizer = sender as! UIPanGestureRecognizer
         
     
         let state: UIGestureRecognizerState = pan.state
@@ -232,17 +232,17 @@ self.enableGesture(false)
            
             
             
-             StaticStruct.animDirector?.interactiveUpdateBlock={(transactionContext:UIViewControllerContextTransitioning, percent: CGFloat)->Void in
+            StaticStruct.animDirector?.interactiveUpdateBlock={(transactionContext:UIViewControllerContextTransitioning, percent: CGFloat)->Void in
                 
-                let maskLayer:CAShapeLayer = transactionContext.viewControllerForKey(UITransitionContextToViewControllerKey)?.view.layer.mask as CAShapeLayer
+                let maskLayer:CAShapeLayer = transactionContext.viewControllerForKey(UITransitionContextToViewControllerKey)?.view.layer.mask as! CAShapeLayer
                 
                 let mainD = percent * StaticStruct.d
                 
                 let maskRect : CGRect = CGRectMake(-mainD/2, location.y-mainD/2, mainD, mainD);
-               
+                
                 let path = CGPathCreateWithEllipseInRect(maskRect, nil)
                 
-              
+                
                 maskLayer.path=path
                 
             }
@@ -259,18 +259,11 @@ self.enableGesture(false)
             
             let canceled = mainD>StaticStruct.d*0.5 ? false : true;
             
-             StaticStruct.animDirector?.endInteractiveTranscation(canceled: canceled,{()->Void in
-             
-                 StaticStruct.clean()
-                
-             
-             })
-             
-             
-      
+            StaticStruct.animDirector?.endInteractiveTranscation(canceled: canceled, endBlock: { () -> Void in
+                StaticStruct.clean()
+            })
+        }
     }
-    
-}
 }
 
 
