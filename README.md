@@ -17,6 +17,12 @@ for push simple use
    self.navigationController?.radialPushViewController(SecondViewController(nibName: "SecondViewController", bundle: nil),startFrame: CGRectMake(self.view.frame.size.width, 0, 0, 0),duration:0.9,transitionCompletion: { () -> Void in
    
    })
+```   
+Swift 3: push with storyboards
+```   
+   let vc = self.storyboard?.instantiateViewController(withIdentifier: "myVC") as! MyViewController
+    
+   self.navigationController?.radialPushViewController(viewController: vc, duration: 0.3, startFrame: myButton.frame, transitionCompletion: nil)
 ```
 for pop  use
 ```  swift
